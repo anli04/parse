@@ -6,10 +6,10 @@
 char ** parse_args(char * line);
 
 int main(){
-  char * line = "ls -a -l";
+  char * line = strdup("ls -a -l");
   printf("Line to be tested: \"ls -a -l\"\n");
   char ** args = parse_args(line);
-  execvp("/bin/ls", args);
+  execvp(args[0], args);
   printf("Error with execvp\n");
   return 0;
 }
