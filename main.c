@@ -15,11 +15,10 @@ int main(){
 }
 
 char ** parse_args(char * line){
-  char ** p = &line;
-  char ** args = malloc(5 * sizeof(line));
+  char ** args = malloc(256);
   int i = 0;
-  while (*line){
-    args[i] = strsep(p, " ");
+  while (line){
+    args[i] = strsep(&line, " ");
     i++;
   }
   return args;
