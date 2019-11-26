@@ -16,11 +16,11 @@ int main(){
 
 char ** parse_args(char * line){
   char ** p = &line;
-  static char * s[5];
+  char ** args = malloc(5 * sizeof(line));
   int i = 0;
   while (*line){
-    s[i] = strsep(p, " ");
+    args[i] = strsep(p, " ");
     i++;
   }
-  return s;
+  return args;
 }
